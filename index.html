@@ -24,6 +24,35 @@
             .bg-peach-pink {
                 background-color: #ffb6b9;
             }
+            /* New styles */
+            .navbar-brand .text-primary {
+                color: #ffb6b9; /* dark peachy pink */
+            }
+            .nav-link {
+                color: #ffb6b9 !important; /* dark peachy pink */
+            }
+            .btn-outline-dark {
+                color: #000000 !important; /* black font */
+                border-color: #000000 !important; /* black border */
+            }
+            .btn-outline-dark:hover {
+                background-color: #000000 !important; /* black background on hover */
+            }
+            .btn-primary {
+                background-color: #ffb6b9 !important; /* peachy pink background */
+                color: #ffffff !important; /* white font */
+            }
+            .btn-primary:hover {
+                background-color: #ff9b9e !important; /* darker peachy pink on hover */
+            }
+            .profile {
+                border: 2px solid #ffb6b9; /* peachy pink border */
+                padding: 5px; /* added padding for spacing */
+            }
+            .display-3 span {
+                color: #ffffff; /* white font */
+                text-shadow: -1px -1px 0 #ffb6b9, 1px -1px 0 #ffb6b9, -1px 1px 0 #ffb6b9, 1px 1px 0 #ffb6b9; /* peachy pink outline */
+            }
         </style>
     </head>
     <body class="d-flex flex-column h-100">
@@ -142,15 +171,15 @@
                             <!-- Contact form-->
                             <form>
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="inputName" type="text" placeholder="Enter your name..." />
+                                    <input class="form-control" id="inputName" type="text" placeholder="First and last name..." />
                                     <label for="inputName">Full name</label>
                                 </div>
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-                                    <label for="inputEmail">Email address</label>
+                                    <label for="inputEmail">Type of project</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <textarea class="form-control" id="inputMessage" placeholder="Enter your message here..." style="height: 10rem"></textarea>
+                                    <textarea class="form-control" id="inputMessage" placeholder="Tell me more about the project..." style="height: 10rem"></textarea>
                                     <label for="inputMessage">Message</label>
                                 </div>
                                 <div class="d-grid"><button class="btn btn-primary btn-lg" type="submit">Submit</button></div>
