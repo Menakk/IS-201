@@ -128,38 +128,60 @@
                 </div>
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-8 col-xl-6">
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                        <!-- Contact form-->
+                        <form id="contactForm" action="mailto:amityrosefloral@gmail.com" method="post" enctype="text/plain">
                             <!-- Name input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." required />
                                 <label for="name">Full name</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                <div class="invalid-feedback">A name is required.</div>
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                <input class="form-control" id="email" type="email" placeholder="name@example.com" required />
                                 <label for="email">Email address</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                <div class="invalid-feedback">An email is required.</div>
                             </div>
                             <!-- Phone number input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" required />
                                 <label for="phone">Phone number</label>
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                <div class="invalid-feedback">A phone number is required.</div>
                             </div>
-                            <!-- Message input-->
+                            <!-- How did you hear about us? -->
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                <label for="message">Message</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                                <input class="form-control" id="hear-about" type="text" placeholder="How did you hear about us?" required />
+                                <label for="hear-about">How did you hear about us?</label>
+                            </div>
+                            <!-- What type of event? -->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="event-type" type="text" placeholder="What type of event?" required />
+                                <label for="event-type">What type of event are you interested in booking our florals for?</label>
+                            </div>
+                            <!-- Estimated Budget -->
+                            <div class="form-floating mb-3">
+                                <select class="form-control" id="budget" name="budget" required>
+                                    <option value="$2000-$3000">$2,000-$3,000</option>
+                                    <option value="$3500-$5000">$3,500-$5,000</option>
+                                    <option value="$5500-$9000">$5,500-$9,000</option>
+                                    <option value="$10000+">$10,000+</option>
+                                </select>
+                                <label for="budget">What is your estimated budget?</label>
+                            </div>
+                            <!-- Event Date -->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="event-date" type="date" placeholder="Date of event" required />
+                                <label for="event-date">What is the date of your event?</label>
+                            </div>
+                            <!-- Event Location -->
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="event-location" type="text" placeholder="Event location" required />
+                                <label for="event-location">Where is your event located?</label>
+                            </div>
+                            <!-- Additional Event Details -->
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="event-details" placeholder="Additional event details (e.g., color palette, Pinterest links, style)" style="height: 10rem" required></textarea>
+                                <label for="event-details">Please provide any additional details about your event</label>
                             </div>
                             <!-- Submit Button-->
                             <div class="d-grid"><button class="btn btn-primary btn-lg submit-btn" id="submitButton" type="submit">Submit</button></div>
@@ -179,13 +201,4 @@
     </div>
 </footer>
 <!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
-<script src="js/scripts.js"></script>
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-<!-- * *                               SB Forms JS                               * *-->
-<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-</body>
-</html>
+<script src="https://cdn.jsdelivr.net/npm
