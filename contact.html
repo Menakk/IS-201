@@ -1,53 +1,3 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get data from the form
-    $name = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['email']);
-    $phone = htmlspecialchars($_POST['phone']);
-    $hear_about = htmlspecialchars($_POST['hear-about']);
-    $event_type = htmlspecialchars($_POST['event-type']);
-    $budget = htmlspecialchars($_POST['budget']);
-    $event_date = htmlspecialchars($_POST['event-date']);
-    $event_location = htmlspecialchars($_POST['event-location']);
-    $event_details = htmlspecialchars($_POST['event-details']);
-
-    // Recipient email
-    $to = "amityrosefloral@gmail.com";
-    $subject = "New Event Inquiry";
-
-    // Create the email body
-    $message = "
-    <html>
-    <head>
-        <title>New Event Inquiry</title>
-    </head>
-    <body>
-        <p><strong>Full Name:</strong> $name</p>
-        <p><strong>Email Address:</strong> $email</p>
-        <p><strong>Phone Number:</strong> $phone</p>
-        <p><strong>How did you hear about us:</strong> $hear_about</p>
-        <p><strong>Type of Event:</strong> $event_type</p>
-        <p><strong>Estimated Budget:</strong> $budget</p>
-        <p><strong>Event Date:</strong> $event_date</p>
-        <p><strong>Event Location:</strong> $event_location</p>
-        <p><strong>Additional Details:</strong> $event_details</p>
-    </body>
-    </html>
-    ";
-
-    // Set email headers
-    $headers = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-Type: text/html; charset=UTF-8" . "\r\n";
-    $headers .= "From: $email" . "\r\n";
-
-    // Send the email
-    if (mail($to, $subject, $message, $headers)) {
-        echo "Thank you for contacting us. We'll get back to you soon!";
-    } else {
-        echo "There was a problem with the submission. Please try again later.";
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -178,61 +128,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-8 col-xl-6">
-                        <form id="contactForm" action="send-email.php" method="POST">
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- * * SB Forms Contact Form * *-->
+                        <!-- * * * * * * * * * * * * * * *-->
+                        <!-- This form is pre-integrated with SB Forms.-->
+                        <!-- To make this form functional, sign up at-->
+                        <!-- https://startbootstrap.com/solution/contact-forms-->
+                        <!-- to get an API token!-->
+                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                             <!-- Name input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" name="name" placeholder="Enter your name..." required />
+                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
                                 <label for="name">Full name</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
                             </div>
                             <!-- Email address input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" name="email" placeholder="name@example.com" required />
+                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
                                 <label for="email">Email address</label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                             </div>
                             <!-- Phone number input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" name="phone" placeholder="(123) 456-7890" required />
+                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
                                 <label for="phone">Phone number</label>
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
                             </div>
-                            <!-- How did you hear about us? -->
+                            <!-- Message input-->
                             <div class="form-floating mb-3">
-                                <input class="form-control" id="hear-about" type="text" name="hear-about" placeholder="How did you hear about us?" required />
-                                <label for="hear-about">How did you hear about us?</label>
+                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                <label for="message">Message</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
                             </div>
-                            <!-- Event Type -->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="event-type" type="text" name="event-type" placeholder="What type of event are you interested in?" required />
-                                <label for="event-type">What type of event are you interested in?</label>
-                            </div>
-                            <!-- Budget -->
-                            <div class="form-floating mb-3">
-                                <select class="form-control" id="budget" name="budget" required>
-                                    <option value="$2,000-$3,000">$2,000-$3,000</option>
-                                    <option value="$3,500-$5,000">$3,500-$5,000</option>
-                                    <option value="$5,500-$9,000">$5,500-$9,000</option>
-                                    <option value="$10,000+">$10,000+</option>
-                                </select>
-                                <label for="budget">What is your estimated budget?</label>
-                            </div>
-                            <!-- Event Date -->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="event-date" type="date" name="event-date" required />
-                                <label for="event-date">What is the date of your event?</label>
-                            </div>
-                            <!-- Event Location -->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="event-location" type="text" name="event-location" placeholder="Where is your event located?" required />
-                                <label for="event-location">Where is your event located?</label>
-                            </div>
-                            <!-- Additional Event Details -->
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="event-details" name="event-details" placeholder="Please provide any additional details..." style="height: 10rem" required></textarea>
-                                <label for="event-details">Additional details</label>
-                            </div>
-                            <!-- Submit button-->
-                            <div class="d-grid">
-                                <button class="btn btn-primary submit-btn" type="submit">Send Message</button>
-                            </div>
+                            <!-- Submit Button-->
+                            <div class="d-grid"><button class="btn btn-primary btn-lg submit-btn" id="submitButton" type="submit">Submit</button></div>
                         </form>
                     </div>
                 </div>
@@ -240,10 +170,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </section>
 </main>
-
-<!-- Bootstrap JS, Popper.js, and jQuery-->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+<!-- Footer-->
+<footer class="bg-white py-4 mt-auto">
+    <div class="container px-5">
+        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+            <div class="col-auto"><div class="small m-0">Copyright &copy; Kellsie Mena 2024</div></div>
+        </div>
+    </div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
 <script src="js/scripts.js"></script>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!-- * *                               SB Forms JS                               * *-->
+<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
 </html>
